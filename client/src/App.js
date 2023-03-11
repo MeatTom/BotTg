@@ -10,7 +10,7 @@ function App() {
 
     useEffect(() => {
         telegram.ready()
-    },[])
+    },[telegram])
 
   return (
     <div className="App">

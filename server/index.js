@@ -2,7 +2,7 @@ const TelegramBot = require('node-telegram-bot-api');
 require('dotenv').config();
 const token = process.env.BOT_TOKEN;
 const bot = new TelegramBot(token, { polling: true, onlyFirstMatch: true });
-const webAppUrl ='https://mera-russia.com/mera/';
+const webAppUrl ='https://bot-tg-sigma.vercel.app';
 const commands = [
     { command: 'start', description: 'Начать работу с ботом' },
     { command: 'catalog', description: 'Открыть каталог'},
@@ -75,6 +75,7 @@ const sendHelpMessage = (chatId) => {
         'Для использования бота выберите одну из опций на виртуальной клавиатуре или введите одну из следующих команд и нажмите на неё:\n' +
         '\n' +
         '/start - Начать работу с ботом\n' +
+        '/catalog - Открыть каталог товаров\n' +
         '/about - Получить информацию о компании\n' +
         '/contacts - Контакты для связи\n' +
         '/help - Как пользоваться ботом\n'+
@@ -87,6 +88,7 @@ const sendHelpMessage = (chatId) => {
 bot.onText(/\/start/, (msg) => {
     bot.sendMessage(msg.chat.id, 'Добро пожаловать! Вас приветствует бот компании "MERA" по заказу контрольно-измерительных приборов. Выберите одну из опций на клавиатуре или введите одну из следующих команд (их также можно выбрать в боковом меню с командами):\n'+
         '/start\n' +
+        '/catalog\n' +
         '/about\n' +
         '/contacts\n' +
         '/help',

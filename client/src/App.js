@@ -16,7 +16,7 @@ function App() {
     <div className="App">
         <Header/>
         сайт работает!!!
-        <button onClick={onToggleButton}>toggle</button>
+        <button onClick={onToggleButton}>Показать главную кнопку</button>
     </div>
   );
 }

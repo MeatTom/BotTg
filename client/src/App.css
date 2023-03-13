@@ -1,5 +1,5 @@
 body {
     background: var(--tg-theme-bg-color);
     color: var(--tg-theme-text-color);
-    max-width: 200px;
+    max-width: 400px;
 }

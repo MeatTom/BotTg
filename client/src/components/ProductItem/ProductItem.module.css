@@ -3,7 +3,8 @@
     flex-direction: column;
     border: 1px solid var(--tg-theme-button-color);
     padding: 15px;
-    width: 190px;
+    width: 200px;
+    color: var(--tg-theme-text-color);
 }
 
 .img {
@@ -15,6 +16,7 @@
 
 .description {
     font-size: 0.8em;
+    color: var(--tg-theme-hint-color);
 }
 
 .add_button {

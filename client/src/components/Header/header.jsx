@@ -1,15 +1,15 @@
 import React from 'react';
 import Button from "../Button/button";
 import {useTelegram} from "../../hooks/telegram";
-import './header.css'
+import HeaderStyle from './header.module.css'
 
 const Header = () => {
     const {user, onClose} = useTelegram()
 
     return (
-        <div className={'header'}>
+        <div className={HeaderStyle.header}>
             <Button onClick={onClose}>Закрыть</Button>
-            <p className={'username'}>
+            <p className={HeaderStyle.username}>
                 Пользователь: {user?.username}
             </p>
         </div>

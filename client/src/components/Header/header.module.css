@@ -21,4 +21,5 @@
     width: 30%;
     font-size: 0.8em;
     text-align: left;
+    color: var(--tg-theme-link-color);
 }

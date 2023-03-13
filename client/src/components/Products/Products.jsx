@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import ProductItem from "../ProductItem/ProductItem";
 import {useTelegram} from "../../hooks/telegram";
-const ProductsStyle = require ('./Products.css')
+import ProductsStyle from './Products.module.css'
 
 const products = [
     {id:1, title: 'ЭЛЕКТРОМАГНИТНЫЙ РАСХОДОМЕР РУДНИЧНОГО ИСПОЛНЕНИЯ MERA EFM EX', category: 'Расходомеры. Рудничное исполнение', description: 'Сертифицирован в России для применения на рудниках и шахтах во взрывоопасных зонах'},

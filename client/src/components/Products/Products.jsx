@@ -4,7 +4,7 @@ import {useTelegram} from "../../hooks/telegram";
 import ProductsStyle from './Products.module.css'
 
 const products = [
-    {id:1, img:'statics/productImages/1.jpg', title: 'ЭЛЕКТРОМАГНИТНЫЙ РАСХОДОМЕР РУДНИЧНОГО ИСПОЛНЕНИЯ MERA EFM EX', category: 'Расходомеры. Рудничное исполнение', description: 'Сертифицирован в России для применения на рудниках и шахтах во взрывоопасных зонах'},
+    {id:1, img:'client/public/statics/productImages/1.jpg', title: 'ЭЛЕКТРОМАГНИТНЫЙ РАСХОДОМЕР РУДНИЧНОГО ИСПОЛНЕНИЯ MERA EFM EX', category: 'Расходомеры. Рудничное исполнение', description: 'Сертифицирован в России для применения на рудниках и шахтах во взрывоопасных зонах'},
     {id:2, img:'statics/productImages/2.jpg', title: 'ЭЛЕКТРОМАГНИТНЫЙ РАСХОДОМЕР MERA EFM', category: 'Расходомеры. Общепромышленное исполнение', description: 'Широкий спектр применения и возможностей в любой сфере промышленности'},
     {id:3, img:'statics/productImages/3.jpg', title: 'ЭЛЕКТРОМАГНИТНЫЙ РАСХОДОМЕР MERA SFM', category: 'Расходомеры. Общепромышленное исполнение', description: 'Оптимальное соотношение цены и качества'},
     {id:4, img:'statics/productImages/4.png', title: 'РЕЛЕ ПОТОКА MERA FS306', category: 'Реле потока. Вода', description: 'Универсальность, DN 32 … 200, сменные лопасти из нержавеющей стали, микропереключатель для обеспечения высокой нагрузки на контакт'},

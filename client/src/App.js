@@ -1,8 +1,9 @@
 import './App.css';
 import React from 'react';
 import {useEffect} from "react";
-import Header from "./components/header/header";
+import Header from "./components/Header/header";
 import {useTelegram} from "./hooks/telegram";
+import Products from "./components/Products/Products";
 
 
 function App() {
@@ -15,7 +16,7 @@ function App() {
   return (
     <div className="App">
         <Header/>
-        сайт работает!!!
+        <Products/>
         <button onClick={onToggleButton}>Показать главную кнопку</button>
     </div>
   );

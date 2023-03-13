@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from "../button/button";
+import Button from "../Button/button";
 import {useTelegram} from "../../hooks/telegram";
 import './header.css'
 

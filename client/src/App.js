@@ -17,7 +17,6 @@ function App() {
     <div className="App">
         <Header/>
         <Products/>
-        <button onClick={onToggleButton}>Показать главную кнопку</button>
     </div>
   );
 }

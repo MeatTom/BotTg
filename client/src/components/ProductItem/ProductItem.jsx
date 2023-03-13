@@ -1,6 +1,6 @@
 import React from 'react';
-import './ProductItem.css'
 import Button from "../Button/button";
+const ProductItemStyle = require ('./ProductItem.css')
 
 const ProductItem = ({product, className, onAdd}) => {
     const onAddHandler = () => {
@@ -8,13 +8,13 @@ const ProductItem = ({product, className, onAdd}) => {
     }
 
     return (
-        <div className={'product' + className}>
-            <div className={'category'}>{product.category}</div>
-            <div className={'img'}/>
-            <div className={'title'}>{product.title}</div>
-            <div className={'description'}>{product.description}</div>
+        <div className={ProductItemStyle.product + className}>
+            <div>{product.category}</div>
+            <div className={ProductItemStyle.img}/>
+            <div className={ProductItemStyle.title}>{product.title}</div>
+            <div className={ProductItemStyle.description}>{product.description}</div>
 
-        <Button className={'add_button'} onClick={onAddHandler}>Заказать</Button>
+        <Button className={ProductItemStyle.add_button} onClick={onAddHandler}>Заказать</Button>
         </div>
     );
 };

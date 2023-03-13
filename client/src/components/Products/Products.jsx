@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
-import './Products.css'
 import ProductItem from "../ProductItem/ProductItem";
 import {useTelegram} from "../../hooks/telegram";
+const ProductsStyle = require ('./Products.css')
 
 const products = [
     {id:1, title: 'ЭЛЕКТРОМАГНИТНЫЙ РАСХОДОМЕР РУДНИЧНОГО ИСПОЛНЕНИЯ MERA EFM EX', category: 'Расходомеры. Рудничное исполнение', description: 'Сертифицирован в России для применения на рудниках и шахтах во взрывоопасных зонах'},
@@ -36,9 +36,9 @@ const Products = () => {
     }
 
     return (
-        <div className={'list'}>
+        <div className={ProductsStyle.list}>
             {products.map(item => (
-                <ProductItem product={item} onAdd={onAdd} className={'item'}/>
+                <ProductItem product={item} onAdd={onAdd} className={ProductsStyle.item}/>
             ))}
             
         </div>

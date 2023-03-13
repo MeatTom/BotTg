@@ -8,7 +8,7 @@ const ProductItem = ({product, className, onAdd}) => {
     }
 
     return (
-        <div style="--tg-theme-button-color: #0088cc;" className={'product' + className}>
+        <div className={'product' + className}>
             <div className={'category'}>{product.category}</div>
             <div className={'img'}/>
             <div className={'title'}>{product.title}</div>

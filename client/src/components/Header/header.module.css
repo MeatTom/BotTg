@@ -3,12 +3,16 @@
     height: 50px;
     display: flex;
     align-items: center;
+    margin-bottom: 15px;
+    margin-top: 10px;
 }
 
 .title {
     color: var(--tg-theme-text-color);
     text-align: center;
-    text-underline: var(--tg-theme-text-color);
+    position: center;
+    margin-left: 8px;
+    font-weight: bold;
 }
 
 .button {
@@ -16,4 +20,5 @@
     background: none;
     width: 30%;
     font-size: 0.8em;
+    text-align: left;
 }

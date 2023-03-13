@@ -31,7 +31,7 @@ const Products = () => {
             telegram.MainButton.hide()
         } else {
             telegram.MainButton.show()
-            telegram.MainButton.setParams({text: 'Заказать'})
+            telegram.MainButton.setParams({text: 'Оформить заказ'})
         }
     }
 

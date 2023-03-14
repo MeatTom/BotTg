@@ -1,0 +1,43 @@
+.modal {
+    display: block;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    height: 100%;
+    overflow: auto;
+    background-color: var(--tg-theme-bg-color);
+    max-width: 360px;
+}
+
+.modal_content {
+    background-color: var(--tg-theme-secondary-bg-color);
+    margin: 15% auto;
+    padding: 20px;
+    border: 2px var(--tg-theme-button-color);
+    width: 80%;
+}
+
+.close {
+    color: var(--tg-theme-link-color);
+    float: right;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+img{
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+h2{
+    margin-top: 35px;
+    text-align: center;
+}

@@ -2,13 +2,17 @@ import React from 'react';
 import Button from "../Button/button";
 import ProductItemStyle from './ProductItem.module.css'
 
-const ProductItem = ({product,onAdd}) => {
+const ProductItem = ({product, onAdd, onCardClick}) => {
     const onAddHandler = () => {
         onAdd(product)
     }
 
+    const onCardClickHandler = () => {
+        onCardClick(product)
+    }
+
     return (
-        <div className={ProductItemStyle.product}>
+        <div className={ProductItemStyle.product} onClick={onCardClickHandler}>
             <div className={ProductItemStyle.category}>{product.category}</div>
             <div>
                 <img src = {product.img} alt={product.title}/>

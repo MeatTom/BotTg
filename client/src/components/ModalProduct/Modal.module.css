@@ -5,15 +5,15 @@
     top: 0;
     height: 100%;
     overflow: auto;
-    background-color: var(--tg-theme-bg-color);
+    background-color: var(--tg-theme-secondary-bg-color);
     max-width: 360px;
+    border: 2px var(--tg-theme-button-color);
 }
 
 .modal_content {
-    background-color: var(--tg-theme-secondary-bg-color);
+    background-color: var(--tg-theme-bg-color);
     margin: 15% auto;
     padding: 20px;
-    border: 2px var(--tg-theme-button-color);
     width: 80%;
 }
 
@@ -26,7 +26,7 @@
 
 .close:hover,
 .close:focus {
-    color: black;
+    color: var(--tg-theme-button-text-color);
     text-decoration: none;
     cursor: pointer;
 }

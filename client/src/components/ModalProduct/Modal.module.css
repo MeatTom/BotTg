@@ -2,7 +2,8 @@
     display: block;
     position: fixed;
     z-index: 1000;
-    height: 80%;
+    top: 0;
+    height: 100%;
     overflow: auto;
     background-color: var(--tg-theme-bg-color);
     max-width: 360px;

@@ -15,7 +15,7 @@ const ProductItem = ({product, onAdd, onCardClick}) => {
         <div className={ProductItemStyle.product}>
             <div onClick={onCardClickHandler}>
             <div className={ProductItemStyle.category}>{product.category}</div>
-            <div>
+            <div className={ProductItemStyle.item}>
                 <img src = {product.img} alt={product.title}/>
             </div>
             <div className={ProductItemStyle.title}>{product.title}</div>

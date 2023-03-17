@@ -2,6 +2,7 @@ const TelegramBot = require('node-telegram-bot-api');
 require('dotenv').config();
 const express = require('express');
 const app = express();
+const productRouters = require('./Routers/productRouters')
 const adminRouter = require('./Admin/Admin')
 const token = process.env.BOT_TOKEN;
 const bot = new TelegramBot(token, { polling: true, interval: 300, onlyFirstMatch: true });
@@ -30,8 +31,15 @@ syncDatabase().then(() => {
     });
 });
 
-app.use('/admin', adminRouter);
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*')
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE')
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type')
+    next()
+})
 
+app.use('/admin', adminRouter);
+app.use(productRouters)
 
 bot.setMyCommands(commands);
 

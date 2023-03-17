@@ -1,6 +1,11 @@
 const { Sequelize } = require ('sequelize')
 const { DataTypes } = require ('sequelize')
-const sequelize = new Sequelize(process.env.URL_DB, {
+const url = process.env.URL_DB
+if (!url) {
+    console.error('Database URL is not defined!');
+    process.exit(1);
+}
+const sequelize = new Sequelize(url, {
     dialect: 'postgres'
 })
 

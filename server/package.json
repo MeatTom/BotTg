@@ -9,9 +9,17 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@admin-bro/express": "^3.1.0",
+    "@admin-bro/sequelize": "^1.2.1",
+    "@adminjs/express": "^5.1.0",
+    "admin-bro": "^4.0.1",
+    "adminjs": "^6.8.7",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
-    "node-telegram-bot-api": "^0.61.0"
+    "node-telegram-bot-api": "^0.61.0",
+    "pg": "^8.10.0",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.29.3"
   },
   "devDependencies": {
     "nodemon": "^2.0.21"

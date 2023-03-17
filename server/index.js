@@ -1,7 +1,10 @@
 const TelegramBot = require('node-telegram-bot-api');
 require('dotenv').config();
+const express = require('express');
+const app = express();
+const adminRouter = require('./Admin/Admin')
 const token = process.env.BOT_TOKEN;
-const bot = new TelegramBot(token, { polling: true, onlyFirstMatch: true });
+const bot = new TelegramBot(token, { polling: true, interval: 300, onlyFirstMatch: true });
 const webAppUrl ='https://bot-tg-sigma.vercel.app';
 const commands = [
     { command: 'start', description: 'Начать работу с ботом' },
@@ -10,6 +13,25 @@ const commands = [
     { command: 'contacts', description: 'Контакты для связи' },
     { command: 'help', description: 'Как пользоваться ботом' },
 ];
+const { sequelize } = require('./DataBase/models')
+
+async function syncDatabase() {
+    try {
+        await sequelize.sync();
+        console.log('База данных подключилась успешно');
+    } catch (err) {
+        console.error('Не удалось подключить базу данных:', err);
+    }
+}
+
+syncDatabase().then(() => {
+    app.listen(process.env.PORT, () => {
+        console.log(`Сервер запущен на порте ${process.env.PORT}`);
+    });
+});
+
+app.use('/admin', adminRouter);
+
 
 bot.setMyCommands(commands);
 

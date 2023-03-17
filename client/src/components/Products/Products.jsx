@@ -81,6 +81,8 @@ const Products = () => {
     const {telegram} = useTelegram()
     const [addedItems, setAddedItems] = useState([])
     const [selectedProduct, setSelectedProduct] = useState(null);
+
+
     const onAdd = (product) => {
         const addedInCart = addedItems.find(item => item.id === product.id)
         let newItems

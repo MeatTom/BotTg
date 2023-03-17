@@ -1,6 +1,8 @@
 const { Sequelize } = require ('sequelize')
 const { DataTypes } = require ('sequelize')
-const sequelize = new Sequelize(process.env.URL_DB)
+const sequelize = new Sequelize(process.env.URL_DB, {
+    dialect: 'postgres'
+})
 
 const Product = sequelize.define('Products', {
     id:{

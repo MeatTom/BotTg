@@ -29,9 +29,11 @@ const Modal = ({ product, onClose, showModal }) => {
                     <>
                 <h2>{productInfo.title}</h2>
                 <img src={productInfo.img} alt={productInfo.title} />
-                <div className={ModalStyle.desc}>
-                    {productInfo.desc_full}
-                </div>
+                        <ul className={ModalStyle.desc}>
+                            {productInfo.desc_full.split(';').map((item, index) => (
+                                <li key={index}>{item}</li>
+                            ))}
+                        </ul>
             </>
             ) : (
             <p>Loading...</p>

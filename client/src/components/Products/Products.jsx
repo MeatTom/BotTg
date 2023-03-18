@@ -27,19 +27,21 @@ const Products = () => {
         const addedInCart = addedItems.find(item => item.id === product.id)
         let newItems
 
-        if(addedInCart) {
-            newItems = addedItems.filter(item => item.id !== product.id)
+        if (addedInCart) {
+            newItems = addedItems.map(item =>
+                item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+            )
         } else {
-            newItems = [...addedItems, product]
+            newItems = [...addedItems, { ...product, quantity: 1 }]
         }
 
         setAddedItems(newItems)
 
-        if(newItems.length === 0) {
+        if (newItems.length === 0) {
             telegram.MainButton.hide()
         } else {
             telegram.MainButton.show()
-            telegram.MainButton.setParams({text: 'Оформить заказ'})
+            telegram.MainButton.setParams({ text: 'Оформить заказ', onClick: openCart })
         }
     }
 
@@ -87,13 +89,6 @@ const Products = () => {
                     <Cart addedItems={addedItems} onClose={closeCart} onSubmit={handleSubmit} setName={setName} setPhone={setPhone} />
                 </div>
             )}
-            <div className={ProductsStyle.footer}>
-                {addedItems.length > 0 && (
-                    <button className={ProductsStyle.cartButton} onClick={openCart}>
-                        Корзина ({addedItems.length})
-                    </button>
-                )}
-            </div>
         </div>
     );
 };

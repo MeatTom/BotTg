@@ -3,7 +3,7 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 const productRouters = require('./Routers/productRouters')
-const cartRouter = require('./Routers/cartRouter')
+const cartRouters = require('./Routers/orderRouter')
 const adminRouter = require('./Admin/Admin')
 const token = process.env.BOT_TOKEN;
 const bot = new TelegramBot(token, { polling: true, interval: 300, onlyFirstMatch: true });
@@ -41,7 +41,7 @@ app.use((req, res, next) => {
 
 app.use('/admin', adminRouter);
 app.use(productRouters)
-app.use(cartRouter)
+app.use(cartRouters)
 module.exports = app;
 
 bot.setMyCommands(commands);

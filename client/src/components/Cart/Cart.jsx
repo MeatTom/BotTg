@@ -1,15 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect} from 'react';
 import axios from 'axios';
 import Button from "../Button/button";
 
 const Cart = ({ addedItems, onClose}) => {
     const [name, setName] = useState('');
     const [phone, setPhone] = useState('');
+    const [cartItems, setCartItems] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.post('http://localhost:4000/cart/items', { addedItems });
+                setCartItems(response.data);
+            } catch (error) {
+                console.error(error);
+            }
+        };
+        fetchData();
+    }, [addedItems]);
 
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            await axios.post('http://localhost:4000/order', { name, phone, items: addedItems });
+            await axios.post('http://localhost:4000/order', { name, phone, items: cartItems });
             onClose();
         } catch (error) {
             console.error(error);

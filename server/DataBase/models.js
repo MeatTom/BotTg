@@ -1,11 +1,9 @@
 const { Sequelize } = require ('sequelize')
 const { DataTypes } = require ('sequelize')
-import pg from 'pg'
 const url = process.env.URL_DB
 
 const sequelize = new Sequelize(url, {
     dialect: 'postgres',
-    dialectModule: pg
 })
 
 const Product = sequelize.define('Products', {

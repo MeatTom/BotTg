@@ -26,9 +26,9 @@ async function syncDatabase() {
 }
 
 syncDatabase().then(() => {
-    //app.listen(process.env.PORT, () => {
+    app.listen(process.env.PORT, () => {
         console.log(`Сервер запущен на порте ${process.env.PORT}`);
-    //});
+    });
 });
 
 app.use((req, res, next) => {

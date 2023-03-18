@@ -2,8 +2,9 @@ const express = require('express');
 const { Product, Cart } = require('../DataBase/models');
 const router = express.Router();
 
-router.post('/cart', async (req, res) => {
-    const { productId } = req.body;
+router.post('/cart/:productId', async (req, res) => {
+
+    const { productId } = req.params;
 
     try {
         const cartItem = await Cart.create({ productId, quantity: 1 });

@@ -14,7 +14,7 @@ const ProductItem = ({product, onAdd, onCardClick}) => {
 
     const addToCart = async (product) => {
         try {
-            const response = await axios.post('http://localhost:4000/cart', { productId: product.id });
+            const response = await axios.post(`http://localhost:4000/cart/${product.id}`);
             console.log(response.data);
         } catch (error) {
             console.error(error);

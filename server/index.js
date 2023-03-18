@@ -40,7 +40,7 @@ app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PATCH, PUT, DELETE, OPTIONS');
     next();
 });
-app.use(cors({ origin: 'http://localhost:3000', credentials: true }));
+//app.use(cors({ origin: 'http://localhost:3000', credentials: true }));
 
 app.use('/admin', adminRouter);
 app.use(productRouters)

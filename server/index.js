@@ -44,7 +44,6 @@ app.use((req, res, next) => {
 
 app.use('/admin', adminRouter);
 app.use(productRouters)
-app.use(cartRouters)
 module.exports = app;
 
 bot.setMyCommands(commands);

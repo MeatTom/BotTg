@@ -15,7 +15,11 @@ const Products = () => {
 
    React.useEffect(() => {
         const fetchProducts = async () => {
-            const response = await axios.get('http://localhost:3000/products');
+            const response = await axios.get('https://proxy.cors.sh/http://localhost:3000/products', {
+                headers: {
+                    'x-cors-api-key': 'temp_ffa41d721df59850f0be56f2099aee65',
+                }
+            });
             setProducts(response.data);
         };
 

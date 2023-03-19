@@ -3,7 +3,7 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 const productRouters = require('./Routers/productRouters')
-const cartRouters = require('./Routers/cartRouters')
+const orderRouters = require('./Routers/orderRouter')
 const adminRouter = require('./Admin/Admin')
 const cors = require('cors');
 const token = process.env.BOT_TOKEN;
@@ -40,10 +40,11 @@ app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PATCH, PUT, DELETE, OPTIONS');
     next();
 });
-//app.use(cors({ origin: 'http://localhost:3000', credentials: true }));
+
 
 app.use('/admin', adminRouter);
 app.use(productRouters)
+app.use(orderRouters)
 module.exports = app;
 
 bot.setMyCommands(commands);

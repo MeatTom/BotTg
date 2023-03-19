@@ -4,13 +4,14 @@ import {useTelegram} from "../../hooks/telegram";
 import ProductsStyle from './Products.module.css'
 import Modal from "../ModalProduct/Modal";
 import axios from 'axios';
-
+import Cart from '../Cart/Cart';
 
 const Products = () => {
     const {telegram} = useTelegram()
     const [products, setProducts] = useState([]);
     const [addedItems, setAddedItems] = useState([])
     const [selectedProduct, setSelectedProduct] = useState(null);
+    const [isCartOpen, setIsCartOpen] = useState(false);
 
    React.useEffect(() => {
         const fetchProducts = async () => {
@@ -49,12 +50,23 @@ const Products = () => {
         setSelectedProduct(null);
     }
 
+    const openCart = () => {
+        setIsCartOpen(true);
+        telegram.MainButton.onClick(openCart)
+    };
+
+    const closeCart = () => {
+        setIsCartOpen(false);
+    };
+
     return (
         <div className={ProductsStyle.list}>
             {products.map(item => (
                 <ProductItem key={item.id} id={item.id} product={item} onAdd={onAdd} onCardClick={onCardClickHandler} className={ProductsStyle.item}/>
             ))}
             {selectedProduct && <Modal product={selectedProduct} onClose={closeModal} />}
+            {isCartOpen && <Modal onClose={closeCart}><Cart addedItems={addedItems} onClose={closeCart} /></Modal>}
+            )}
         </div>
     );
 };

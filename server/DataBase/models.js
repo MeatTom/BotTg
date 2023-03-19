@@ -34,23 +34,23 @@ const Product = sequelize.define('Products', {
     }
 })
 
-const Cart = sequelize.define('Cart', {
+const Orders = sequelize.define('Orders', {
     id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
         primaryKey: true
     },
-    productId: {
+    userId: {
         type: DataTypes.INTEGER,
         allowNull: false
     },
-    quantity: {
-        type: DataTypes.INTEGER,
+    products: {
+        type: DataTypes.ARRAY(DataTypes.INTEGER),
         allowNull: false
     }
 });
 
-const UserInfo = sequelize.define('UserInfo', {
+const UserInfo = sequelize.define('UserInfos', {
     id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
@@ -62,7 +62,10 @@ const UserInfo = sequelize.define('UserInfo', {
     },
     user_phone: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: false ,
+        validate: {
+            is: /^\+7\d{10}$/
+        }
     },
     user_order: {
         type: DataTypes.INTEGER,
@@ -70,14 +73,11 @@ const UserInfo = sequelize.define('UserInfo', {
     }
 })
 
-Product.hasMany(Cart, { foreignKey: 'productId' });
-Cart.belongsTo(Product, { foreignKey: 'productId' });
-
-Cart.belongsTo(UserInfo, { foreignKey: 'user_order' });
+Orders.belongsTo(UserInfo);
 
 module.exports = {
     Product,
-    Cart,
+    Orders,
     UserInfo,
     sequelize
 };

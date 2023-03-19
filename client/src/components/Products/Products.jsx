@@ -65,8 +65,7 @@ const Products = () => {
                 <ProductItem key={item.id} id={item.id} product={item} onAdd={onAdd} onCardClick={onCardClickHandler} className={ProductsStyle.item}/>
             ))}
             {selectedProduct && <Modal product={selectedProduct} onClose={closeModal} />}
-            {isCartOpen && <Modal onClose={closeCart}><Cart addedItems={addedItems} onClose={closeCart} /></Modal>}
-            )}
+            {isCartOpen && <Cart addedItems={addedItems} onClose={closeCart} />}
         </div>
     );
 };

@@ -39,6 +39,7 @@ const Products = () => {
         } else {
             telegram.MainButton.show()
             telegram.MainButton.setParams({text: 'Оформить заказ'})
+            telegram.MainButton.onClick(openCart)
         }
     }
 
@@ -52,7 +53,6 @@ const Products = () => {
 
     const openCart = () => {
         setIsCartOpen(true);
-        telegram.MainButton.onClick(openCart)
     };
 
     const closeCart = () => {

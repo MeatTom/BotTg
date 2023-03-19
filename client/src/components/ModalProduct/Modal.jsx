@@ -9,7 +9,7 @@ const Modal = ({ product, onClose, showModal }) => {
    React.useEffect(() => {
         const getProductInfo = async () => {
             try {
-                const response = await axios.get(`http://localhost:4000/products/${product.id}`);
+                const response = await axios.get(`http://localhost:3000/products/${product.id}`);
                 console.log(response)
                 setProductInfo(response.data);
             } catch (error) {

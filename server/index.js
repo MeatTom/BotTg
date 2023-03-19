@@ -17,6 +17,14 @@ const commands = [
     { command: 'help', description: 'Как пользоваться ботом' },
 ];
 const { sequelize } = require('./DataBase/models')
+const path = require('path');
+
+app.use(express.static(path.join(__dirname, '../client/build')));
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
+});
+
 
 async function syncDatabase() {
     try {

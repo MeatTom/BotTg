@@ -17,18 +17,6 @@ const commands = [
     { command: 'help', description: 'Как пользоваться ботом' },
 ];
 const { sequelize } = require('./DataBase/models')
-const whitelist = ['http://localhost:3000', 'http://localhost:4000'];
-
-app.use(cors({
-    origin: function (origin, callback) {
-        if (whitelist.indexOf(origin) !== -1 || !origin) {
-            callback(null, true);
-        } else {
-            callback(new Error('Not allowed by CORS'));
-        }
-    }
-}));
-
 
 async function syncDatabase() {
     try {
@@ -46,10 +34,9 @@ syncDatabase().then(() => {
 });
 
 app.options('*', cors())
-app.use((req, res, next) => {
+    app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
     res.setHeader('Access-Control-Allow-Credentials', true);
     res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
     next();

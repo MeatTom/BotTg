@@ -44,16 +44,18 @@ const Cart = ({ addedItems, onClose }) => {
                         </ul>
                         </div>
                         <form onSubmit={handleSubmit}>
-                            <label>
+                            <p>Для заказа товара заполните форму:</p>
+                            <label className={CartStyle.cart_form_fio}>
                                 ФИО:
                                 <input
+                                    placeholder={'Фамилия Имя Отчество'}
                                     type="text"
                                     value={name}
                                     onChange={(event) => setName(event.target.value)}
                                     required
                                 />
                             </label>
-                            <label>
+                            <label className={CartStyle.cart_form_phone}>
                                 Номер телефона:
                                 <input
                                     type="tel"
@@ -62,7 +64,7 @@ const Cart = ({ addedItems, onClose }) => {
                                     required
                                 />
                             </label>
-                            <Button type="submit">Отправить</Button>
+                            <Button className={CartStyle.cart_btn} type="submit">Отправить</Button>
                         </form>
                     </>
                 )}

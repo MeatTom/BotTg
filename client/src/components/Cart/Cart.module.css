@@ -89,3 +89,7 @@ input:focus {
     margin-bottom: 10px;
     margin-top: 20px;
 }
+
+p{
+    font-style: italic;
+}

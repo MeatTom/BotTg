@@ -43,7 +43,7 @@ const Cart = ({ addedItems, onClose }) => {
                         </ul>
                         </div>
                         <form onSubmit={handleSubmit}>
-                            <p>Для заказа товара заполните форму:</p>
+                            <p>Для заказа товара заполните форму</p>
                             <label className={CartStyle.cart_form_fio}>
                                 ФИО:
                                 <input

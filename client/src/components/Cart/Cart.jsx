@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Button from "../Button/button";
-const url = 'http://localhost:4000/order';
-const proxyUrl = 'https://cors-anywhere.herokuapp.com//localhost:4000/order';
+import InputMask from 'react-input-mask'
 
 
 const Cart = ({ addedItems, onClose }) => {
@@ -49,8 +48,8 @@ const Cart = ({ addedItems, onClose }) => {
                         </label>
                         <label>
                             Номер телефона:
-                            <input
-                                type="tel"
+                            <InputMask
+                                mask="+79999999999"
                                 value={phone}
                                 onChange={(event) => setPhone(event.target.value)}
                                 required

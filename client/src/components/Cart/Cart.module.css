@@ -44,6 +44,12 @@ h1{
     text-align: center;
 }
 
+.cart_products{
+margin-bottom: 30px;
+    text-align: left;
+    font-size: 15px;
+}
+
 .cart_form_fio{
     text-align: center;
 }
@@ -62,6 +68,7 @@ input {
     padding: 10px 0;
     width: 250px;
     transition: border .5s;
+    margin-bottom: 10px;
 }
 
 input:focus {
@@ -70,5 +77,6 @@ input:focus {
 }
 
 .cart_btn {
-    width: 30px;
+    margin-bottom: 20px;
+    width: 150px;
 }

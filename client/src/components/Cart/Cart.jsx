@@ -3,7 +3,6 @@ import axios from 'axios';
 import Button from "../Button/button";
 import CartStyle from "../Cart/Cart.module.css"
 
-
 const Cart = ({ addedItems, onClose }) => {
     const [name, setName] = useState('');
     const [phone, setPhone] = useState('');
@@ -35,7 +34,7 @@ const Cart = ({ addedItems, onClose }) => {
                 {addedItems.length === 0 && <p>Корзина пуста</p>}
                 {addedItems.length > 0 && (
                     <>
-                        <div>
+                        <div className={CartStyle.cart_products}>
                             <h2>Заказанные товары:</h2>
                         <ul>
                             {addedItems.map((item) => (
@@ -58,7 +57,9 @@ const Cart = ({ addedItems, onClose }) => {
                             <label className={CartStyle.cart_form_phone}>
                                 Номер телефона:
                                 <input
+                                    pattern="+7[0-9]{10}"
                                     type="tel"
+                                    placeholder={'Номер в формате +7__________'}
                                     value={phone}
                                     onChange={(event) => setPhone(event.target.value)}
                                     required

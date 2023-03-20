@@ -53,6 +53,7 @@ const Products = () => {
 
     const openCart = () => {
         setIsCartOpen(true);
+        telegram.MainButton.hide()
     };
 
     const closeCart = () => {

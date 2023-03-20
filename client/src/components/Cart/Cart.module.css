@@ -3,7 +3,7 @@
     position: fixed;
     z-index: 1000;
     top: 0;
-    height: auto;
+    height: 80%;
     overflow: auto;
     background-color: var(--tg-theme-bg-color);
     color: var(--tg-theme-button-text-color);
@@ -14,7 +14,7 @@
 
 .cart_modal_content {
     background-color: var(--tg-theme-secondary-bg-color);
-    margin: 15% auto;
+    margin: 10% auto;
     padding: 20px;
     width: 80%;
     border: 1px solid var(--tg-theme-link-color);
@@ -82,7 +82,8 @@ input:focus {
 }
 
 .cart_btn {
+    display: flex;
     margin-bottom: 200px;
     width: 150px;
-    position: center;
+    justify-content: center;
 }

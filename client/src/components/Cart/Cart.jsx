@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Button from "../Button/button";
+const url = 'http://localhost:4000/order';
+const proxyUrl = 'https://cors-anywhere.herokuapp.com//localhost:4000/order';
+
 
 const Cart = ({ addedItems, onClose }) => {
     const [name, setName] = useState('');
@@ -8,14 +11,14 @@ const Cart = ({ addedItems, onClose }) => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-
         try {
-            const response = await axios.post('http://localhost:4000/orders', {
-                name,
-                phone,
-                items: addedItems.map(item => item.id)
-            });
-
+            const response = await axios.get('http://localhost:4000/order', {
+                params: {
+                    name,
+                    phone,
+                    items: addedItems.map(item => item.id),
+                }
+            })
             console.log(response.data);
             onClose();
         } catch (error) {

@@ -67,13 +67,9 @@ const UserInfo = sequelize.define('UserInfos', {
             is: /^\+7\d{10}$/
         }
     },
-    user_order: {
-        type: DataTypes.INTEGER,
-        allowNull: false
-    }
 })
 
-Orders.belongsTo(UserInfo);
+Orders.belongsTo(UserInfo, { foreignKey: 'userId' });
 
 module.exports = {
     Product,

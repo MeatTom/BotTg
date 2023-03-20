@@ -36,12 +36,14 @@ syncDatabase().then(() => {
 app.options('*', cors())
     app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PATCH, PUT, DELETE, OPTIONS');
     res.setHeader('Access-Control-Allow-Credentials', true);
-    res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
+    res.setHeader('Referrer-Policy', '');
+    res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
     next();
 });
 
+app.use(cors({ origin: 'http://localhost:3000', credentials: true }));
 
 app.use('/admin', adminRouter);
 app.use(productRouters)

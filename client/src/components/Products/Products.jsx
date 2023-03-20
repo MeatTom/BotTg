@@ -2,9 +2,10 @@ import React, {useState} from 'react'
 import ProductItem from "../ProductItem/ProductItem";
 import {useTelegram} from "../../hooks/telegram";
 import ProductsStyle from './Products.module.css'
-import Modal from "../ModalProduct/Modal";
+import ModalProduct from "../ModalProduct/ModalProduct";
 import axios from 'axios';
 import Cart from '../Cart/Cart';
+import {Modal} from "react-bootstrap";
 
 const Products = () => {
     const {telegram} = useTelegram()
@@ -64,8 +65,12 @@ const Products = () => {
             {products.map(item => (
                 <ProductItem key={item.id} id={item.id} product={item} onAdd={onAdd} onCardClick={onCardClickHandler} className={ProductsStyle.item}/>
             ))}
-            {selectedProduct && <Modal product={selectedProduct} onClose={closeModal} />}
-            {isCartOpen && <Cart addedItems={addedItems} onClose={closeCart} />}
+            {selectedProduct && <ModalProduct product={selectedProduct} onClose={closeModal} />}
+            {isCartOpen && (
+                <Modal onClose={closeCart}>
+                    <Cart addedItems={addedItems} onClose={closeCart} />
+                </Modal>
+                )}
         </div>
     );
 };

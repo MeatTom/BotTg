@@ -1,8 +1,8 @@
 import React from 'react';
-import ModalStyle from './Modal.module.css';
+import ModalStyle from './ModalProduct.module.css';
 import axios from "axios";
 
-const Modal = ({ product, onClose, showModal }) => {
+const ModalProduct = ({ product, onClose, showModal }) => {
 
     const [productInfo, setProductInfo] = React.useState(null);
 
@@ -43,4 +43,4 @@ const Modal = ({ product, onClose, showModal }) => {
     );
 };
 
-export default Modal;
+export default ModalProduct;

@@ -1,18 +1,12 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Button from "../Button/button";
-import InputMask from 'react-input-mask'
-import Modal from 'react-bootstrap'
+import CartStyle from "../Cart/Cart.module.css"
+
 
 const Cart = ({ addedItems, onClose }) => {
     const [name, setName] = useState('');
     const [phone, setPhone] = useState('');
-    const [show, setShow] = useState(true);
-
-    const handleClose = () => {
-        setShow(false);
-        onClose();
-    };
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -21,30 +15,34 @@ const Cart = ({ addedItems, onClose }) => {
                 params: {
                     name,
                     phone,
-                    items: addedItems.map((item) => item.id),
-                },
-            });
+                    items: addedItems.map(item => item.id),
+                }
+            })
             console.log(response.data);
-            handleClose();
+            onClose();
         } catch (error) {
             console.error(error);
         }
     };
 
     return (
-        <Modal show={show} onHide={handleClose}>
-            <Modal.Header closeButton>
-                <Modal.Title>Корзина</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
+        <div className={CartStyle.cart_modal}>
+            <div className={CartStyle.cart_modal_content}>
+        <span className={CartStyle.close} onClick={onClose}>
+          &times;
+        </span>
+                <h1>Корзина</h1>
                 {addedItems.length === 0 && <p>Корзина пуста</p>}
                 {addedItems.length > 0 && (
                     <>
+                        <div>
+                            <h2>Заказанные товары:</h2>
                         <ul>
                             {addedItems.map((item) => (
                                 <li key={item.id}>{item.title}</li>
                             ))}
                         </ul>
+                        </div>
                         <form onSubmit={handleSubmit}>
                             <label>
                                 ФИО:
@@ -57,8 +55,8 @@ const Cart = ({ addedItems, onClose }) => {
                             </label>
                             <label>
                                 Номер телефона:
-                                <InputMask
-                                    mask="+79999999999"
+                                <input
+                                    type="tel"
                                     value={phone}
                                     onChange={(event) => setPhone(event.target.value)}
                                     required
@@ -68,13 +66,8 @@ const Cart = ({ addedItems, onClose }) => {
                         </form>
                     </>
                 )}
-            </Modal.Body>
-            <Modal.Footer>
-                <Button variant="secondary" onClick={handleClose}>
-                    Закрыть
-                </Button>
-            </Modal.Footer>
-        </Modal>
+            </div>
+        </div>
     );
 };
 

@@ -57,9 +57,9 @@ const Cart = ({ addedItems, onClose }) => {
                             <label className={CartStyle.cart_form_phone}>
                                 Номер телефона:
                                 <input
-                                    pattern="+7[0-9]{10}"
+                                    pattern={'+7[0-9]{10}'}
                                     type="tel"
-                                    placeholder={'Номер в формате +7__________'}
+                                    placeholder={'+7__________'}
                                     value={phone}
                                     onChange={(event) => setPhone(event.target.value)}
                                     required

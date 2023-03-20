@@ -3,7 +3,7 @@
     position: fixed;
     z-index: 1000;
     top: 0;
-    height: 80%;
+    height: 100%;
     overflow: auto;
     background-color: var(--tg-theme-bg-color);
     color: var(--tg-theme-button-text-color);
@@ -17,6 +17,7 @@
     margin: 10% auto;
     padding: 20px;
     width: 80%;
+    height: auto;
     border: 1px solid var(--tg-theme-link-color);
 }
 
@@ -82,8 +83,7 @@ input:focus {
 }
 
 .cart_btn {
-    display: flex;
     margin-bottom: 200px;
-    width: 150px;
-    justify-content: center;
+    width: 200px;
+    margin-left: 15px;
 }

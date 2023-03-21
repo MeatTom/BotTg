@@ -6,7 +6,7 @@
     height: 100%;
     overflow: auto;
     background-color: var(--tg-theme-bg-color);
-    color: var(--tg-theme-button-text-color);
+    color: var(--tg-theme-text-color);
     max-width: 360px;
     border-radius: 5px;
     padding: 20px;
@@ -92,4 +92,5 @@ input:focus {
 
 p{
     font-style: italic;
+    color: var(--tg-theme-hint-color);
 }

@@ -31,6 +31,10 @@ img {
     width: 100%;
 }
 
+.added_btn{
+    background-color: indianred;
+}
+
 .category{
     text-align: center;
     line-height: 30px;

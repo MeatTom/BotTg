@@ -63,7 +63,7 @@ const Products = () => {
     return (
         <div className={ProductsStyle.list}>
             {products.map(item => (
-                <ProductItem key={item.id} id={item.id} product={item} onAdd={onAdd} onCardClick={onCardClickHandler} className={ProductsStyle.item}/>
+                <ProductItem key={item.id} id={item.id} product={item} onAdd={onAdd} onCardClick={onCardClickHandler} className={ProductsStyle.item} addedItems={addedItems}/>
             ))}
             {selectedProduct && <ModalProduct product={selectedProduct} onClose={closeModal} />}
             {isCartOpen && <Cart addedItems={addedItems} onClose={closeCart} />}

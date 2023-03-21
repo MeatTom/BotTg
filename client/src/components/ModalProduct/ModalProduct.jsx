@@ -20,7 +20,7 @@ const ModalProduct = ({ product, onClose, showModal }) => {
     }, [product.id]);
 
     return (
-        <div className={ModalStyle.modal} style={{display: showModal ? 'none' : 'block'}}>
+        <div className={ModalStyle.modal}>
             <div className={ModalStyle.modal_content}>
         <span className={ModalStyle.close} onClick={onClose}>
           &times;

@@ -2,7 +2,7 @@ import React from 'react';
 import Button from "../Button/button";
 import ProductItemStyle from './ProductItem.module.css'
 
-const ProductItem = ({product, onAdd, onCardClick}) => {
+const ProductItem = ({product, onAdd, onCardClick, addedItems}) => {
     const onAddHandler = () => {
         onAdd(product)
     }
@@ -10,6 +10,8 @@ const ProductItem = ({product, onAdd, onCardClick}) => {
     const onCardClickHandler = () => {
         onCardClick(product)
     }
+
+    const isAdded = addedItems.some(item => item.id === product.id);
 
     return (
         <div className={ProductItemStyle.product}>
@@ -21,9 +23,9 @@ const ProductItem = ({product, onAdd, onCardClick}) => {
             <div className={ProductItemStyle.title}>{product.title}</div>
             <div className={ProductItemStyle.description}>{product.description}</div>
             </div>
-        <Button className={ProductItemStyle.add_button} onClick={onAddHandler}>
-            Заказать
-        </Button>
+            <Button className={isAdded ? `${ProductItemStyle.add_button} ${ProductItemStyle.added_btn}` : ProductItemStyle.add_button} onClick={onAddHandler}>
+                {isAdded ? "В корзине" : "Заказать"}
+            </Button>
         </div>
     );
 };

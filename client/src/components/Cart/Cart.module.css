@@ -63,7 +63,6 @@ margin-bottom: 30px;
 li {
     margin-bottom: 5px;
     margin-left: -5px;
-
 }
 
 input {
@@ -93,4 +92,20 @@ input:focus {
 p{
     font-style: italic;
     color: var(--tg-theme-hint-color);
+}
+
+.cart_success {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--tg-theme-secondary-bg-color);
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
 }

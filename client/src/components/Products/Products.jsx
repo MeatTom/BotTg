@@ -64,7 +64,6 @@ const Products = () => {
     const handleOrderSuccess = () => {
         setIsOrderSuccess(true);
         setIsCartOpen(false);
-        console.log("Order successful!");
     }
 
     return (

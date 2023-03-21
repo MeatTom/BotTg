@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import Button from "../Button/button";
 import CartStyle from "../Cart/Cart.module.css"
+import {useTelegram} from "../../hooks/telegram";
 
-const Cart = ({ addedItems, onClose }) => {
+const Cart = ({ addedItems, onClose, openCart }) => {
+    const {telegram} = useTelegram()
     const [name, setName] = useState('');
     const [phone, setPhone] = useState('');
 
@@ -24,10 +26,17 @@ const Cart = ({ addedItems, onClose }) => {
         }
     };
 
+    const handleCloseCart = () => {
+        telegram.MainButton.show();
+        telegram.MainButton.setParams({text: 'Оформить заказ'});
+        telegram.MainButton.onClick(openCart);
+        onClose();
+    };
+
     return (
         <div className={CartStyle.cart_modal}>
             <div className={CartStyle.cart_modal_content}>
-        <span className={CartStyle.close} onClick={onClose}>
+        <span className={CartStyle.close} onClick={handleCloseCart}>
           &times;
         </span>
                 <h1>Корзина</h1>

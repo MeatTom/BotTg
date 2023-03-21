@@ -34,7 +34,7 @@ const Products = () => {
 
         setAddedItems(newItems)
 
-        if(newItems.length === 0) {
+        if(newItems.length === 0 && isCartOpen === false) {
             telegram.MainButton.hide()
         } else {
             telegram.MainButton.show()

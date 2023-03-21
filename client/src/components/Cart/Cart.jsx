@@ -38,8 +38,8 @@ const Cart = ({ addedItems, onClose, openCart }) => {
         <div className={CartStyle.cart_modal}>
             {isOrderSuccess ? ( // если заказ успешен, то отображаем только сообщение об успешной покупке и кнопку закрытия приложения
                 <div className={CartStyle.cart_success}>
-                    <p>Ваш заказ успешно оформлен!</p>
-                    <button onClick={() => window.close()}>Закрыть</button>
+                    <p>Ваш заказ успешно оформлен! Ожидайте звонка в ближайшее время</p>
+                    <Button onClick={() => telegram.close()}>Закрыть каталог</Button>
                 </div>
             ) : ( // в противном случае отображаем содержимое корзины
                 <div className={CartStyle.cart_modal_content}>

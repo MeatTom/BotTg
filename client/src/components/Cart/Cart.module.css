@@ -68,7 +68,7 @@ li {
 
 input {
     text-align: center;
-    background-color: #ECF0F1;
+    background-color: var(--tg-theme-hint-color);
     border: 2px solid transparent;
     border-radius: 3px;
     font-size: 16px;

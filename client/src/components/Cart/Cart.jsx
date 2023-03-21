@@ -3,6 +3,7 @@ import axios from 'axios';
 import Button from "../Button/button";
 import CartStyle from "../Cart/Cart.module.css"
 import {useTelegram} from "../../hooks/telegram";
+import InputMask from 'react-input-mask';
 
 const Cart = ({ addedItems, onClose, openCart }) => {
     const {telegram} = useTelegram()
@@ -38,8 +39,10 @@ const Cart = ({ addedItems, onClose, openCart }) => {
         <div className={CartStyle.cart_modal}>
             {isOrderSuccess ? ( // если заказ успешен, то отображаем только сообщение об успешной покупке и кнопку закрытия приложения
                 <div className={CartStyle.cart_success}>
+                    <div className={CartStyle.cart_success_content}>
                     <p>Ваш заказ успешно оформлен! Ожидайте звонка в ближайшее время</p>
                     <Button onClick={() => telegram.close()}>Закрыть каталог</Button>
+                    </div>
                 </div>
             ) : ( // в противном случае отображаем содержимое корзины
                 <div className={CartStyle.cart_modal_content}>
@@ -72,8 +75,8 @@ const Cart = ({ addedItems, onClose, openCart }) => {
                                 </label>
                                 <label className={CartStyle.cart_form_phone}>
                                     Номер телефона:
-                                    <input
-                                        pattern={'+7[0-9]{10}'}
+                                    <InputMask
+                                        mask="+79999999999"
                                         type="tel"
                                         placeholder={'+7__________'}
                                         value={phone}

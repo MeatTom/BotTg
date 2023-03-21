@@ -12,6 +12,7 @@ const Products = () => {
     const [addedItems, setAddedItems] = useState([])
     const [selectedProduct, setSelectedProduct] = useState(null);
     const [isCartOpen, setIsCartOpen] = useState(false);
+    const [isSuccess, setIsSuccess] = useState(false);
 
    React.useEffect(() => {
         const fetchProducts = async () => {
@@ -66,7 +67,7 @@ const Products = () => {
                 <ProductItem key={item.id} id={item.id} product={item} onAdd={onAdd} onCardClick={onCardClickHandler} className={ProductsStyle.item} addedItems={addedItems}/>
             ))}
             {selectedProduct && <ModalProduct product={selectedProduct} onClose={closeModal} />}
-            {isCartOpen && <Cart addedItems={addedItems} onClose={closeCart} />}
+            {isCartOpen && <Cart addedItems={addedItems} onClose={closeCart} onSuccess={() => setIsSuccess(true)}/>}
         </div>
     );
 };

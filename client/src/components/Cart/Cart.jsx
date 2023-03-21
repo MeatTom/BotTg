@@ -4,7 +4,7 @@ import Button from "../Button/button";
 import CartStyle from "../Cart/Cart.module.css"
 import {useTelegram} from "../../hooks/telegram";
 
-const Cart = ({ addedItems, onClose, openCart }) => {
+const Cart = ({ addedItems, onClose, openCart, onSuccess }) => {
     const {telegram} = useTelegram()
     const [name, setName] = useState('');
     const [phone, setPhone] = useState('');
@@ -20,7 +20,7 @@ const Cart = ({ addedItems, onClose, openCart }) => {
                 }
             })
             console.log(response.data);
-            onClose();
+            onSuccess()
         } catch (error) {
             console.error(error);
         }
@@ -40,47 +40,57 @@ const Cart = ({ addedItems, onClose, openCart }) => {
           &times;
         </span>
                 <h1>Корзина</h1>
-                {addedItems.length === 0 && <p>Корзина пуста</p>}
-                {addedItems.length > 0 && (
+                {onSuccess ? (
+                    <div>
+                        <p>Заказ успешно оформлен!</p>
+                        <button onClick={() => window.close()}>Закрыть</button>
+                    </div>
+                ) : (
                     <>
-                        <div className={CartStyle.cart_products}>
-                            <h2>Заказанные товары:</h2>
-                        <ul>
-                            {addedItems.map((item) => (
-                                <li key={item.id}>{item.title}</li>
-                            ))}
-                        </ul>
-                        </div>
-                        <form onSubmit={handleSubmit}>
-                            <p>Для заказа товара заполните форму</p>
-                            <label className={CartStyle.cart_form_fio}>
-                                ФИО:
-                                <input
-                                    placeholder={'Фамилия Имя Отчество'}
-                                    type="text"
-                                    value={name}
-                                    onChange={(event) => setName(event.target.value)}
-                                    required
-                                />
-                            </label>
-                            <label className={CartStyle.cart_form_phone}>
-                                Номер телефона:
-                                <input
-                                    pattern={'+7[0-9]{10}'}
-                                    type="tel"
-                                    placeholder={'+7__________'}
-                                    value={phone}
-                                    onChange={(event) => setPhone(event.target.value)}
-                                    required
-                                />
-                            </label>
-                            <Button className={CartStyle.cart_btn} type="submit">Отправить</Button>
-                        </form>
+                        {addedItems.length === 0 && <p>Корзина пуста</p>}
+                        {addedItems.length > 0 && (
+                            <>
+                                <div className={CartStyle.cart_products}>
+                                    <h2>Заказанные товары:</h2>
+                                    <ul>
+                                        {addedItems.map((item) => (
+                                            <li key={item.id}>{item.title}</li>
+                                        ))}
+                                    </ul>
+                                </div>
+                                <form onSubmit={handleSubmit}>
+                                    <p>Для заказа товара заполните форму</p>
+                                    <label className={CartStyle.cart_form_fio}>
+                                        ФИО:
+                                        <input
+                                            placeholder={'Фамилия Имя Отчество'}
+                                            type="text"
+                                            value={name}
+                                            onChange={(event) => setName(event.target.value)}
+                                            required
+                                        />
+                                    </label>
+                                    <label className={CartStyle.cart_form_phone}>
+                                        Номер телефона:
+                                        <input
+                                            pattern={'+7[0-9]{10}'}
+                                            type="tel"
+                                            placeholder={'+7__________'}
+                                            value={phone}
+                                            onChange={(event) => setPhone(event.target.value)}
+                                            required
+                                        />
+                                    </label>
+                                    <Button className={CartStyle.cart_btn} type="submit">Отправить</Button>
+                                </form>
+                            </>
+                        )}
                     </>
                 )}
             </div>
         </div>
     );
 };
+
 
 export default Cart;

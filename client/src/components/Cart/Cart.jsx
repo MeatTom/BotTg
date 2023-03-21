@@ -20,7 +20,7 @@ const Cart = ({ addedItems, onClose, openCart }) => {
                 }
             })
             console.log(response.data);
-            telegram.onClose();
+            onClose();
         } catch (error) {
             console.error(error);
         }

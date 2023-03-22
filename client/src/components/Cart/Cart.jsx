@@ -9,7 +9,7 @@ const Cart = ({ addedItems, onClose, openCart }) => {
     const {telegram} = useTelegram()
     const [name, setName] = useState('');
     const [phone, setPhone] = useState('');
-    const [isOrderSuccess, setIsOrderSuccess] = useState(false); // добавляем состояние для отображения сообщения об успешной покупке
+    const [isOrderSuccess, setIsOrderSuccess] = useState(false);
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -22,7 +22,7 @@ const Cart = ({ addedItems, onClose, openCart }) => {
                 }
             })
             console.log(response.data);
-            setIsOrderSuccess(true); // устанавливаем состояние "isOrderSuccess" в "true" при успешной отправке запроса
+            setIsOrderSuccess(true);
         } catch (error) {
             console.error(error);
         }
@@ -37,14 +37,14 @@ const Cart = ({ addedItems, onClose, openCart }) => {
 
     return (
         <div className={CartStyle.cart_modal}>
-            {isOrderSuccess ? ( // если заказ успешен, то отображаем только сообщение об успешной покупке и кнопку закрытия приложения
+            {isOrderSuccess ? (
                 <div className={CartStyle.cart_success}>
                     <div className={CartStyle.cart_success_content}>
                     <p>Ваш заказ успешно оформлен! Ожидайте звонка в ближайшее время</p>
                     <Button onClick={() => telegram.close()}>Закрыть каталог</Button>
                     </div>
                 </div>
-            ) : ( // в противном случае отображаем содержимое корзины
+            ) : (
                 <div className={CartStyle.cart_modal_content}>
           <span className={CartStyle.close} onClick={handleCloseCart}>
             &times;
